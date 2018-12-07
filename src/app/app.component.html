@@ -1,0 +1,181 @@
+
+<app-header></app-header>
+<router-outlet></router-outlet>
+<div class="row">
+    <div class="col-sm-1 col-lg-1"></div>
+    <div class="col-sm-3 col-lg-3">
+
+        <h3><b>Create Token</b></h3>
+        <input type="text" placeholder="Enter the private Address" #acc_add><br><br>
+        <input type="text" placeholder="Enter the Token Name" #token_name><br><br>
+        <input type="text" placeholder="Enter the Token Price" #token_price><br><br>
+        <button (click)="createToken(acc_add.value,token_name.value,token_price.value)" class="btn btn-primary">createToken</button>
+    </div>
+    <div class="col-sm-1 col-lg-1"></div>
+    <div class="col-sm-3 col-lg-3 balance">
+            <h3><b>Check balance</b></h3>
+            <br><br>
+            <input type="text" placeholder="Enter the Address key" #bal><br><br>
+            <button (click)="blanceof(bal.value)" class="btn btn-primary">balanceof</button>
+            <p>data:{{aaa}}</p>
+    </div>
+    <div class="col-sm-1 col-lg-1"></div>
+    <div class="col-sm-3 col-lg-3">
+            <h3><b>Create Token for contract</b></h3>
+            <br><br>
+            <input type="text" placeholder="Enter the Token Name" #name><br><br>
+        <button (click)="createcontract(name.value)" class="btn btn-primary">createContractperson_token</button>
+    </div>
+
+  
+    <!-- <div class="col-sm-4">
+            <input type="text" placeholder="Enter the TO Address" #a><br>
+            <input type="text" placeholder="Enter the TokenId" #a><br>
+            <button (click)="blanceof(a.value)" class="btn btn-primary">Transfer</button>
+    </div>
+    <div class="col-sm-4">
+            <input type="text" placeholder="Enter the Address key" #a><br>
+            <button (click)="blanceof(a.value)" class="btn btn-primary">balanceof</button>
+    </div> -->
+    
+</div>
+<div class="row">
+        <div class="col-sm-1 col-lg-1"></div>
+        <div class="col-sm-3 col-lg-3">
+          
+                <h3><b>Token Details</b></h3>
+
+                <input type="text" placeholder="Enter the Token id" #tokenid><br><br>
+                <button (click)="tokendetails(tokenid.value)" class="btn btn-primary">GetTokenDetails</button>
+                <p>data:{{personName}}</p>
+                <div id="left-side" *ngFor="let i of arr;let a=index ">
+                        <p>Token name: <span class="name">{{i.personName}}</span> </p>
+                        <p>Address: <span class="name">{{i.owner}}</span> </p>
+                        <p>Token Price: <span class="name">{{i.sellingPrice}}</span> </p>
+                    </div>
+
+               
+        </div>
+        <div class="col-sm-1 col-lg-1"></div>
+        <div class="col-sm-3 col-lg-3 balance" id="numberoftoken">
+                <h3><b>Get your Token ID</b></h3>
+                <input type="text" placeholder="Enter the Address" #token_address><br><br>
+                <button (click)="numberoftoken(token_address.value)" class="btn btn-primary">TokenID</button>
+                <p>data:{{getid}}</p>
+        </div>
+        <div class="col-sm-1 col-lg-1"></div>
+        <div class="col-sm-3 col-lg-3">
+                <h3><b>current ceo</b></h3>
+               
+                <button (click)="current_ceo()" class="btn btn-primary">Current_ceo</button>
+                <p>data:{{ceoadd}}</p>
+                <button (click)="current_coo()" class="btn btn-primary">Current_coo</button>
+                <p>data:{{cooadd}}</p>
+            </div>
+    
+        
+    </div>
+    <div class="row">
+            <div class="col-sm-1 col-lg-1"></div>
+            <div class="col-sm-3 col-lg-3">
+              
+                    <div class="card" style="width: 18rem;">
+      
+                            <div class="card-body">
+                                    <img src="../assets/s1.jpeg" alt="Card image cap">   
+                              <h2 class="card-title">TOTALSUPPLY</h2>
+                              <p class="card-text">Token in your contract</p>
+                              <button (click)="totalSupply()" class="btn btn-primary">TotalSupply</button>
+                              <p>data:{{tot}}</p>
+
+                            </div>
+                          </div>
+                          <div></div>
+            </div>
+            <div class="col-sm-1 col-lg-1"></div>
+            <div class="col-sm-3 col-lg-3 balance">
+                    <h3><b>Approval</b></h3>
+                    <!-- <input type="text" placeholder="Enter the Token Address" #app_token_add><br><br> -->
+                    <input type="text" placeholder="Enter the Address" #app_token_add><br><br>
+
+                    <input type="text" placeholder="Enter the Token ID" #app_token_id><br><br>
+
+                    <button (click)="approve(app_token_add.value,app_token_id.value)" class="btn btn-primary">Approve</button>
+                    <p>data:{{approveee}}</p>
+
+            </div>
+            <div class="col-sm-1 col-lg-1"></div>
+            <div class="col-sm-3 col-lg-3">
+                    <h3><b>Approved address</b></h3>
+                    <input type="text" placeholder="Enter the TokenID" #ap><br><br>
+                    <button (click)="approval(ap.value)" class="btn btn-primary">Approved_address</button>
+                    <p>data:{{approvee}}</p>
+
+                </div>
+        
+            
+        </div>
+        <div class="row">
+                <div class="col-sm-1 col-lg-1"></div>
+                <div class="col-sm-3 col-lg-3">
+                        <h3><b>Transfer</b></h3>
+                        <input type="text" placeholder="Enter the TO Address" #transfer_add><br><br>
+                        <input type="text" placeholder="Enter the TokenID" #transfer_id><br><br>
+
+                        <button (click)="transfer(transfer_add.value,transfer_id.value)" class="btn btn-primary">Transfer</button>
+                     
+                              <div></div>
+                </div>
+                <div class="col-sm-1 col-lg-1"></div>
+                <div class="col-sm-3 col-lg-3 balance">
+                        <h3><b>Transferfrom</b></h3>
+                        <input type="text" placeholder="Enter the FROM Address" #tran_from><br><br>
+                        <input type="text" placeholder="Enter the To Address" #tran_to><br><br>
+                        <input type="text" placeholder="Enter the To Address" #tran_id><br><br>
+
+                        <button (click)="transferFrom(tran_from.value,tran_to.value,tran_id.value)" class="btn btn-primary">Transferfrom</button>
+                </div>
+                <div class="col-sm-1 col-lg-1"></div>
+                <div class="col-sm-3 col-lg-3">
+                        <h3><b>CEO Address</b></h3>
+                        <input type="text" placeholder="Enter the old_owner private key" #ceo_pri><br><br>
+                        <input type="text" placeholder="Enter the Address" #ceo><br><br>
+
+                        <button (click)="setceos(ceo_pri.value,ceo.value)" class="btn btn-primary">Set_CEO</button>
+                    </div>
+            
+                
+            </div>
+
+
+            <div class="row">
+                    <div class="col-sm-1 col-lg-1"></div>
+                    <div class="col-sm-3 col-lg-3">
+                            <h3><b>COO Address</b></h3>
+                            <input type="text" placeholder="Enter the TO Address" #coo><br><br>
+                           
+                            <button (click)="setcoos(coo.value)" class="btn btn-primary">Set_COO</button>
+                         
+                                  <div></div>
+                    </div>
+                    <div class="col-sm-1 col-lg-1"></div>
+                    <div class="col-sm-3 col-lg-3 balance">
+                            <h3><b>Purchase</b></h3>
+                            <input type="text" placeholder="Enter the Private key" #pk><br><br>
+                            <input type="text" placeholder="Enter the TokenID" #tkid><br><br>
+                            <input type="text" placeholder="Enter the ether" #ether><br><br>
+
+                            <button (click)="purchase(pk.value,tkid.value,ether.value)" class="btn btn-primary">Transferfrom</button>
+                    </div>
+                    <div class="col-sm-1 col-lg-1"></div>
+                    <div class="col-sm-3 col-lg-3">
+                            <h3><b>Payout</b></h3>
+                            <input type="text" placeholder="Enter the Address" #add><br><br>
+                            <button (click)="payout(add.value)" class="btn btn-primary">Payout</button>
+                        </div>
+                
+                    
+                </div>
+    
+    
+    
